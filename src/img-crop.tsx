@@ -179,6 +179,8 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
 
     // get the new image
     const { type, name, uid } = fileRef.current;
+    console.log(fileRef.current);
+
     const onBlob = async (blob: Blob | null) => {
       let newFile = Object.assign(new File([blob], name, { type }), { uid }) as RcFile;
 
