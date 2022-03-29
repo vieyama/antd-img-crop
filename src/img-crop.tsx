@@ -16,7 +16,7 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
     shape = 'rect',
     grid = false,
     quality = 0.4,
-    // fillColor = 'orange',
+    fillColor = 'rgba(255, 255, 255, 0.5)',
 
     zoom = true,
     rotate = false,
@@ -148,7 +148,7 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
 
       canvas.width = squareWidth;
       canvas.height = squareHeight;
-      // ctx.fillStyle = fillColor;
+      ctx.fillStyle = fillColor;
       ctx.fillRect(0, 0, squareWidth, squareHeight);
 
       // rotate container
@@ -171,7 +171,7 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
     } else {
       canvas.width = cropWidth;
       canvas.height = cropHeight;
-      // ctx.fillStyle = fillColor;
+      ctx.fillStyle = fillColor;
       ctx.fillRect(0, 0, cropWidth, cropHeight);
 
       ctx.drawImage(imgSource, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
@@ -179,8 +179,6 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
 
     // get the new image
     const { type, name, uid } = fileRef.current;
-    console.log(fileRef.current);
-
     const onBlob = async (blob: Blob | null) => {
       let newFile = Object.assign(new File([blob], name, { type }), { uid }) as RcFile;
 
@@ -210,7 +208,7 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
       }
     };
     canvas.toBlob(onBlob, type, quality);
-  }, [quality, rotate]);
+  }, [fillColor, quality, rotate]);
 
   const getComponent = (titleOfModal) => (
     <>
