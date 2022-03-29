@@ -16,7 +16,7 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
     shape = 'rect',
     grid = false,
     quality = 0.4,
-    fillColor = 'rgba(255, 255, 255, 0.5)',
+    // fillColor = '#fff0',
 
     zoom = true,
     rotate = false,
@@ -148,8 +148,8 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
 
       canvas.width = squareWidth;
       canvas.height = squareHeight;
-      ctx.fillStyle = fillColor;
-      ctx.fillRect(0, 0, squareWidth, squareHeight);
+      // ctx.fillStyle = fillColor;
+      // ctx.fillRect(0, 0, squareWidth, squareHeight);
 
       // rotate container
       const squareHalfWidth = squareWidth / 2;
@@ -171,8 +171,8 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
     } else {
       canvas.width = cropWidth;
       canvas.height = cropHeight;
-      ctx.fillStyle = fillColor;
-      ctx.fillRect(0, 0, cropWidth, cropHeight);
+      // ctx.fillStyle = fillColor;
+      // ctx.fillRect(0, 0, cropWidth, cropHeight);
 
       ctx.drawImage(imgSource, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
     }
@@ -208,7 +208,7 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
       }
     };
     canvas.toBlob(onBlob, type, quality);
-  }, [fillColor, quality, rotate]);
+  }, [quality, rotate]);
 
   const getComponent = (titleOfModal) => (
     <>
