@@ -41,19 +41,8 @@ interface EasyCropProps
 }
 
 const EasyCrop = forwardRef<EasyCropHandle, EasyCropProps>((props, ref) => {
-  const {
-    cropperRef,
-    image,
-
-    aspect,
-    shape,
-    grid,
-    zoom,
-    rotate,
-    minZoom,
-    maxZoom,
-    cropperProps,
-  } = props;
+  const { cropperRef, image, aspect, shape, grid, zoom, rotate, minZoom, maxZoom, cropperProps } =
+    props;
 
   const [crop, onCropChange] = useState<Point>({ x: 0, y: 0 });
   const [cropSize, setCropSize] = useState<Size>({ width: 0, height: 0 });

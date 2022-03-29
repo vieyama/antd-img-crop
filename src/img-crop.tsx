@@ -16,7 +16,7 @@ const ImgCrop = forwardRef<Cropper, ImgCropProps>((props, ref) => {
     shape = 'rect',
     grid = false,
     quality = 0.4,
-    fillColor = 'white',
+    fillColor = 'orange',
 
     zoom = true,
     rotate = false,
